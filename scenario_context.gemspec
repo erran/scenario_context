@@ -2,11 +2,11 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'controls/version'
+require 'scenario_context/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'scenario_context'
-  spec.version       = Controls::VERSION
+  spec.version       = ScenarioContext::VERSION
   spec.authors       = ['Erran Carey']
   spec.email         = ['me@errancarey.com']
   spec.description   = %q(This gem provides ScenarioContext)
