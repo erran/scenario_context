@@ -43,5 +43,6 @@ class ScenarioContext
         scenario.title
       end
     end
+    alias_method :name, :title
   end
 end
