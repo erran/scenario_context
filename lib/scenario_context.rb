@@ -38,8 +38,17 @@ class ScenarioContext
   #   method
   # @return the return value of the method after sending it to @scenario
   def method_missing(method_name, *args, &block)
-    super unless scenario.respond_to?(method_name)
+    if scenario.respond_to?(method_name)
+      scenario.send(method_name, *args, &block)
+    elsif original_scenario
+      original_scenario.send(method_name, *args, &block)
+    else
+      super
+    end
+  end
 
-    scenario.send(method_name, *args, &block)
+  # @return the native ExampleRow or Scenario object
+  def original_scenario
+    scenario.scenario
   end
 end
