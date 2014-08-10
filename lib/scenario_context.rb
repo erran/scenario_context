@@ -29,7 +29,7 @@ class ScenarioContext
   # @return [Boolean] true if the method is available or whether @scenario
   #   responds to the method
   def respond_to_missing?(method_name, include_private = false)
-    super || scenario.respond_to?(method_name, include_private)
+    super || scenario.respond_to?(method_name, include_private) || original_scenario.respond_to?(method_name, include_private)
   end
 
   private
@@ -40,7 +40,7 @@ class ScenarioContext
   def method_missing(method_name, *args, &block)
     if scenario.respond_to?(method_name)
       scenario.send(method_name, *args, &block)
-    elsif original_scenario
+    elsif original_scenario.respond_to?(method_name)
       original_scenario.send(method_name, *args, &block)
     else
       super
