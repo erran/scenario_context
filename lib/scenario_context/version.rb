@@ -2,5 +2,5 @@
 # Outline
 class ScenarioContext
   # The version of the scenario_context gem
-  VERSION = '0.0.1.beta.1'
+  VERSION = '1.0.0'
 end
