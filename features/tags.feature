@@ -31,8 +31,9 @@ Feature: Scenarios with context via the @with_context tag
 
   @with_context
   Scenario Outline: A scenario outline with context
-    The real value to using a `ScenarioContext` instead is that a uniform API
-    is available while using Scenarios and ExampleRows.
+    The real value to using a `ScenarioContext` vs. the native Scenario and
+    ScenarioOutlineExample objects is that a uniform API. This prevents the
+    need for conditionals in cucumber's hooks.
 
     Given I have a scenario context
     When I access the scenario proxy
